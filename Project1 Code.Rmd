@@ -1,0 +1,29 @@
+data<- read.csv("customer_data.csv")
+View(data)
+age <- data$age
+age
+e_status <- data$is_employed
+e_status
+
+
+#boxplot
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data, aes(x = e_status, y = age, fill= e_status)) +
+  geom_boxplot()+
+  labs(title = "Age and Employment", x = "Employment Status", y = "Age")
+  scale_color_brewer(palette = "Set2")
+#scatterplot
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data, aes(x = gas_usage, y = income)) +
+  geom_point()+
+  ggtitle("Income as a function of gas usage") +
+  xlab("gas usage") +
+  ylab ("income")
+#barchart
+ggplot(data, aes(x=state_of_res, fill = housing_type))+
+  geom_bar() +
+  labs(fill="Housing Type")
+  xlab("State of Residence")
+  ylab("Count")
